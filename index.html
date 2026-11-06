@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Privacy Policy - FitTrack</title>
+  <meta name="description" content="Privacy Policy for FitTrack: Workout, Fitness & Weight Tracker app for Android and iOS. Learn how we handle your data with utmost privacy and security.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Light Theme (DEFAULT) ────────────────────────────────────────────────── */
+    :root, html[data-theme="light"] {
+      --primary: #00A844;
+      --primary-hover: #008f3a;
+      --primary-light: #E8F5E9;
+      --primary-glow: rgba(0, 168, 68, 0.2);
+      --bg: #F4F6F9;
+      --surface: #FFFFFF;
+      --surface-card: #FFFFFF;
+      --surface-card-hover: #F8FAFC;
+      --surface-alt: #EDF2F7;
+      --border: #E2E8F0;
+      --border-accent: rgba(0, 168, 68, 0.35);
+      --text-main: #0F172A;
+      --text-sub: #475569;
+      --text-dim: #8291A5;
+      --badge-bg: #DCFCE7;
+      --badge-border: #86EFAC;
+      --badge-text: #15803D;
+      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.1);
+      --switch-bg: #E2E8F0;
+      --switch-active-bg: #FFFFFF;
+      --switch-active-text: #0F172A;
+      --ambient-opacity: 0.08;
+    }
+
+    /* ── Dark Theme ───────────────────────────────────────────────────────────── */
+    html[data-theme="dark"] {
+      --primary: #00E676;
+      --primary-hover: #00C853;
+      --primary-light: rgba(0, 230, 118, 0.12);
+      --primary-glow: rgba(0, 230, 118, 0.25);
+      --bg: #0B0E17;
+      --surface: #121826;
+      --surface-card: #172033;
+      --surface-card-hover: #1E2940;
+      --surface-alt: #101522;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 230, 118, 0.35);
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --text-dim: #64748B;
+      --badge-bg: rgba(0, 230, 118, 0.12);
+      --badge-border: rgba(0, 230, 118, 0.35);
+      --badge-text: #00E676;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+      --switch-bg: #1A2234;
+      --switch-active-bg: #00E676;
+      --switch-active-text: #0B0E17;
+      --ambient-opacity: 0.15;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient background glow effect */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      max-width: 1200px;
+      height: 480px;
+      background: radial-gradient(circle at 50% 10%, rgba(0, 230, 118, var(--ambient-opacity)) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top Navigation Bar with Theme Switcher */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+    }
+
+    .top-bar-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 28px;
+      height: 28px;
+      fill: var(--primary);
+    }
+
+    .nav-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 800;
+      font-size: 21px;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+
+    /* Theme Switch Segmented Control */
+    .theme-switch-wrapper {
+      display: inline-flex;
+      align-items: center;
+      background: var(--switch-bg);
+      padding: 3px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    .theme-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .theme-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    .theme-btn.active {
+      background: var(--switch-active-bg);
+      color: var(--switch-active-text);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .theme-btn:hover:not(.active) {
+      color: var(--text-main);
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 80px 20px;
+    }
+
+    /* Header & Title */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-top: 10px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border-accent);
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--primary);
+    }
+
+    .brand-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      color: var(--text-main);
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--text-sub);
+      font-size: 0.92rem;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-updated {
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--badge-text);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* Key Highlights / Summary Grid */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 36px 0;
+    }
+
+    .highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .highlight-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .highlight-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .highlight-card h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    /* Table of Contents */
+    .toc-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toc-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 16px;
+      list-style: none;
+    }
+
+    .toc-list a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.94rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .toc-list a:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .toc-number {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Policy Content Sections */
+    .policy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-card:target {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .section-card h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-card h2 span.section-num {
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    .section-card p {
+      color: var(--text-sub);
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-card ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .section-card li strong {
+      color: var(--text-main);
+    }
+
+    /* Callout & Tables */
+    .callout-box {
+      background: var(--surface-alt);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .callout-box p {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.92rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table th {
+      background: var(--surface-alt);
+      color: var(--text-main);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+    }
+
+    .data-table td {
+      color: var(--text-sub);
+    }
+
+    .data-table tr:hover td {
+      background: var(--primary-light);
+    }
+
+    /* Links */
+    a.external-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dashed var(--primary);
+      transition: color 0.15s ease;
+    }
+
+    a.external-link:hover {
+      color: var(--primary-hover);
+    }
+
+    /* Contact Card */
+    .contact-box {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--primary-light) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--text-main);
+      font-size: 0.96rem;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 640px) {
+      .top-bar {
+        padding: 10px 14px;
+      }
+
+      .nav-title {
+        font-size: 18px;
+      }
+
+      .theme-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+
+      .wrapper {
+        padding: 20px 14px 60px 14px;
+      }
+
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      .section-card {
+        padding: 22px 18px;
+      }
+
+      .section-card h2 {
+        font-size: 1.4rem;
+      }
+
+      .data-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Sticky Top Bar with Theme Toggle -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="#" class="nav-brand">
+        <svg class="nav-logo" viewBox="0 0 24 24">
+          <path d="M20.57 14.86L22 13.43L20.57 12L17 15.57L8.43 7L12 3.43L10.57 2L9.14 3.43L7.71 2L5.57 4.14L4.14 2.71L2.71 4.14L4.14 5.57L2 7.71L3.43 9.14L2 10.57L3.43 12L7 8.43L15.57 17L12 20.57L13.43 22L14.86 20.57L16.29 22L18.43 19.86L19.86 21.29L21.29 19.86L19.86 18.43L22 16.29L20.57 14.86Z"/>
+        </svg>
+        <span class="nav-title">FitTrack</span>
+      </a>
+
+      <!-- Theme Switch Option (Default: Light) -->
+      <div class="theme-switch-wrapper" role="radiogroup" aria-label="Theme switcher">
+        <button id="btn-theme-light" class="theme-btn active" onclick="setAppTheme('light')" aria-label="Switch to Light Theme">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+          <span>Light</span>
+        </button>
+        <button id="btn-theme-dark" class="theme-btn" onclick="setAppTheme('dark')" aria-label="Switch to Dark Theme">
+          <svg viewBox="0 0 24 24">
+            <path d="M12.3 2a10 10 0 0 0-.19 20 10 10 0 0 0 8.35-4.52 1 1 0 0 0-.82-1.57A8 8 0 0 1 11.2 4.19a1 1 0 0 0-1.09-1.07A10 10 0 0 0 12.3 2z"/>
+          </svg>
+          <span>Dark</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <!-- Header -->
+    <header>
+      <div class="brand-pill">
+        <svg class="brand-icon" viewBox="0 0 24 24">
+          <path d="M20.57 14.86L22 13.43L20.57 12L17 15.57L8.43 7L12 3.43L10.57 2L9.14 3.43L7.71 2L5.57 4.14L4.14 2.71L2.71 4.14L4.14 5.57L2 7.71L3.43 9.14L2 10.57L3.43 12L7 8.43L15.57 17L12 20.57L13.43 22L14.86 20.57L16.29 22L18.43 19.86L19.86 21.29L21.29 19.86L19.86 18.43L22 16.29L20.57 14.86Z"/>
+        </svg>
+        <span class="brand-name">FitTrack</span>
+      </div>
+      <h1>Privacy Policy</h1>
+      <div class="meta-bar">
+        <div class="meta-item">
+          <span>Application: <strong>FitTrack (Android &amp; iOS)</strong></span>
+        </div>
+        <div class="meta-item">
+          <span class="badge-updated">Last Updated: November 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Highlights Overview -->
+    <section class="highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">🔒</div>
+        <h3>100% Local Storage</h3>
+        <p>Your fitness metrics, weight, body measurements, and meal logs are stored locally on your device. We do not sell or store them on external servers.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🛡️</div>
+        <h3>No Personal Account</h3>
+        <p>FitTrack works immediately without mandatory sign-in or collecting your personal name, email, or passwords.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">⚡</div>
+        <h3>Firebase Diagnostics</h3>
+        <p>Crash reports and anonymized diagnostic analytics help us fix bugs and improve stability via Firebase Crashlytics &amp; Analytics.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">💳</div>
+        <h3>Secure In-App Purchases</h3>
+        <p>All transactions for premium ad-free upgrades are processed directly through Google Play Billing and Apple App Store.</p>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="toc-container">
+      <div class="toc-title">
+        <span>Table of Contents</span>
+      </div>
+      <ul class="toc-list">
+        <li><a href="#section-1"><span class="toc-number">01.</span> Introduction</a></li>
+        <li><a href="#section-2"><span class="toc-number">02.</span> Information We Collect</a></li>
+        <li><a href="#section-3"><span class="toc-number">03.</span> How Your Data Is Stored</a></li>
+        <li><a href="#section-4"><span class="toc-number">04.</span> Third-Party Services &amp; SDKs</a></li>
+        <li><a href="#section-5"><span class="toc-number">05.</span> Device Permissions</a></li>
+        <li><a href="#section-6"><span class="toc-number">06.</span> Advertising (Google AdMob)</a></li>
+        <li><a href="#section-7"><span class="toc-number">07.</span> In-App Purchases &amp; Payments</a></li>
+        <li><a href="#section-8"><span class="toc-number">08.</span> Children's Privacy (COPPA)</a></li>
+        <li><a href="#section-9"><span class="toc-number">09.</span> User Rights &amp; Data Deletion</a></li>
+        <li><a href="#section-10"><span class="toc-number">10.</span> Changes to this Policy</a></li>
+        <li><a href="#section-11"><span class="toc-number">11.</span> Contact Information</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="policy-content">
+
+      <!-- Section 1 -->
+      <article id="section-1" class="section-card">
+        <h2><span class="section-num">01.</span> Introduction</h2>
+        <p>Welcome to <strong>FitTrack</strong> ("we," "our," or "us"). FitTrack is a personal fitness companion, workout planner, body measurement, and health tracking mobile application available on Android and iOS.</p>
+        <p>We believe your personal health and body measurements belong to you. This Privacy Policy outlines what information the application collects, how it is handled, and your choices regarding your data in compliance with Google Play Developer Policies, Apple App Store Review Guidelines, the General Data Protection Regulation (GDPR), and the California Consumer Privacy Act (CCPA).</p>
+      </article>
+
+      <!-- Section 2 -->
+      <article id="section-2" class="section-card">
+        <h2><span class="section-num">02.</span> Information We Collect</h2>
+        <p>FitTrack is designed to minimize data collection. We categorize data into two types:</p>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Category</th>
+              <th>Examples</th>
+              <th>Storage Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Health &amp; Body Data</strong></td>
+              <td>Weight logs, BMI, body measurements (chest, waist, arms, thighs, hips, neck), daily calories, protein, carbs, water intake.</td>
+              <td><strong>Local device only</strong> (SQLite database)</td>
+            </tr>
+            <tr>
+              <td><strong>Workout &amp; Plans</strong></td>
+              <td>Custom workout routines, weekly schedule, completed sets, favorites.</td>
+              <td><strong>Local device only</strong></td>
+            </tr>
+            <tr>
+              <td><strong>App Preferences</strong></td>
+              <td>Dark/Light theme, metric/imperial units (cm/inches, kg/lbs), preferred language.</td>
+              <td><strong>Local device only</strong> (SharedPreferences)</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Diagnostics</strong></td>
+              <td>Crash stack traces, device model, operating system version, performance metrics.</td>
+              <td>Processed anonymously via Firebase Crashlytics</td>
+            </tr>
+            <tr>
+              <td><strong>Anonymous Usage</strong></td>
+              <td>App opens, screen views, feature interactions (e.g. logging a weight).</td>
+              <td>Processed anonymously via Firebase Analytics</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout-box">
+          <p><strong>Note:</strong> We do NOT collect your personal name, email address, phone number, contacts, GPS location, or physical identity. You do not need to create an account to use all features of FitTrack.</p>
+        </div>
+      </article>
+
+      <!-- Section 3 -->
+      <article id="section-3" class="section-card">
+        <h2><span class="section-num">03.</span> How Your Data Is Stored &amp; Protected</h2>
+        <p>All fitness logs (body measurements, weight progress, calorie intake, water trackers, and workout routines) are kept directly on your mobile device in an isolated, sandboxed application database.</p>
+        <ul>
+          <li><strong>No Cloud Syncing of Fitness Data:</strong> We do not operate external servers that store your personal health numbers. Your data never leaves your device unless you choose to export or back it up yourself.</li>
+          <li><strong>Data Security:</strong> The data is protected by the operating system sandbox security features built into Android and iOS. No other apps on your phone can access FitTrack's internal database without system-level tampering (root/jailbreak).</li>
+        </ul>
+      </article>
+
+      <!-- Section 4 -->
+      <article id="section-4" class="section-card">
+        <h2><span class="section-num">04.</span> Third-Party Services &amp; SDKs</h2>
+        <p>To ensure app stability, detect crashes, provide advertisements, and facilitate purchases, FitTrack integrates trusted third-party software development kits (SDKs) provided by Google and Apple:</p>
+
+        <ul>
+          <li>
+            <strong>Google Analytics for Firebase:</strong> Used to understand general usage trends (such as which screens are popular) and improve user experience. Data collected is aggregated and anonymized. 
+            <br><a class="external-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+          </li>
+          <li>
+            <strong>Firebase Crashlytics:</strong> Used for real-time crash reporting and stability diagnostics to help us rapidly fix bugs. Crashlytics collects anonymous device state information and stack traces when an error occurs.
+            <br><a class="external-link" href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy &amp; Security</a>
+          </li>
+          <li>
+            <strong>Google AdMob:</strong> Used to display advertisements in the free version of the app. AdMob may process advertising identifiers to deliver relevant ads.
+            <br><a class="external-link" href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google AdMob Policies</a>
+          </li>
+          <li>
+            <strong>Google Play In-App Billing / Apple StoreKit:</strong> Used to securely process premium upgrades (such as "Remove Ads"). Payment information is handled entirely by Google Play or Apple; FitTrack never receives or stores your credit card details.
+          </li>
+        </ul>
+      </article>
+
+      <!-- Section 5 -->
+      <article id="section-5" class="section-card">
+        <h2><span class="section-num">05.</span> Device Permissions</h2>
+        <p>FitTrack may request the following device permissions only when necessary for specific features:</p>
+        <ul>
+          <li><strong>Notifications (POST_NOTIFICATIONS / Push):</strong> Used strictly on your device to trigger daily workout and hydration reminder notifications (e.g. morning kickoff, midday check-in, evening target). You can turn notifications on or off at any time in the app Settings or in your device system settings.</li>
+          <li><strong>Audio / Vibration:</strong> Used to alert you with sound or vibration when workout interval timers and rest stopwatches complete.</li>
+          <li><strong>Network / Internet:</strong> Used to load exercise video guides, serve banner/interstitial ads (in the free tier), and send anonymous crash reports to Firebase.</li>
+        </ul>
+      </article>
+
+      <!-- Section 6 -->
+      <article id="section-6" class="section-card">
+        <h2><span class="section-num">06.</span> Advertising (Google AdMob)</h2>
+        <p>The free version of FitTrack is supported through third-party advertising provided by Google AdMob. AdMob may collect and use pseudonymous device identifiers (such as Android Advertising ID / GAID or iOS IDFA) according to Google's advertising policies.</p>
+        <p><strong>Your Choices:</strong></p>
+        <ul>
+          <li>You can reset or opt out of personalized ads at any time via your device settings:
+            <br>&bull; Android: <em>Settings &gt; Google &gt; Ads &gt; Delete or Reset advertising ID</em>
+            <br>&bull; iOS: <em>Settings &gt; Privacy &amp; Security &gt; Tracking</em>
+          </li>
+          <li>You can permanently remove all advertisements by purchasing the <strong>"Remove Ads"</strong> option in the app Settings.</li>
+        </ul>
+      </article>
+
+      <!-- Section 7 -->
+      <article id="section-7" class="section-card">
+        <h2><span class="section-num">07.</span> In-App Purchases &amp; Financial Information</h2>
+        <p>If you choose to purchase the "Remove Ads" lifetime upgrade or any future in-app features:</p>
+        <ul>
+          <li>All financial transactions are conducted directly through the official <strong>Google Play Store</strong> (for Android) or <strong>Apple App Store</strong> (for iOS).</li>
+          <li>We do NOT collect, receive, or store your credit card numbers, bank account information, or billing address.</li>
+          <li>Your purchase receipt is linked to your Google or Apple ID account, allowing you to restore your purchase across multiple devices using the "Restore Purchases" option.</li>
+        </ul>
+      </article>
+
+      <!-- Section 8 -->
+      <article id="section-8" class="section-card">
+        <h2><span class="section-num">08.</span> Children's Privacy (COPPA Compliance)</h2>
+        <p>FitTrack is not intended for use by children under the age of 13 (or under 16 in certain jurisdictions). We do not knowingly collect personal identifiable information from children.</p>
+        <p>If you are a parent or guardian and believe that your child has provided personal information through our application, please contact us immediately so we can take appropriate measures to delete any such data.</p>
+      </article>
+
+      <!-- Section 9 -->
+      <article id="section-9" class="section-card">
+        <h2><span class="section-num">09.</span> User Rights &amp; Data Deletion (GDPR &amp; CCPA)</h2>
+        <p>Under international privacy regulations (including GDPR and CCPA), you have the right to access, export, or completely delete your data:</p>
+        <ul>
+          <li><strong>Data Deletion:</strong> Because all your fitness and workout records are stored entirely on your device, you have full control over your data. You can delete individual measurements directly in the app, or delete all app data by going to <em>Device Settings &gt; Apps &gt; FitTrack &gt; Clear Storage / Clear Data</em>, or by simply uninstalling the application.</li>
+          <li><strong>No Residual Server Copies:</strong> When you delete data or uninstall the app, all your fitness records are permanently wiped from your device. No residual copies remain on our servers because we never stored them remotely.</li>
+        </ul>
+      </article>
+
+      <!-- Section 10 -->
+      <article id="section-10" class="section-card">
+        <h2><span class="section-num">10.</span> Changes to this Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time to reflect changes in legal requirements, third-party SDK updates, or application features. Any changes will be posted on this page with an updated "Last Updated" date at the top.</p>
+        <p>We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.</p>
+      </article>
+
+      <!-- Section 11 -->
+      <article id="section-11" class="section-card">
+        <h2><span class="section-num">11.</span> Contact Us</h2>
+        <p>If you have any questions, suggestions, or concerns regarding this Privacy Policy or your data, please contact the developer:</p>
+        
+        <div class="contact-box">
+          <div class="contact-item">
+            <span>👤 <strong>Developer:</strong> Rishabh Rawat</span>
+          </div>
+          <div class="contact-item">
+            <span>📱 <strong>Application:</strong> FitTrack (Workout &amp; Fitness Tracker)</span>
+          </div>
+          <div class="contact-item">
+            <span>✉️ <strong>Support Email:</strong> <a class="external-link" href="mailto:rishicentury@gmail.com">rishicentury@gmail.com</a></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 FitTrack. All rights reserved.</p>
+      <p>Built with privacy and performance in mind.</p>
+    </footer>
+  </div>
+
+  <!-- Theme Switcher Script (Default: Light Theme) -->
+  <script>
+    function setAppTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try {
+        localStorage.setItem('fittrack_policy_theme', theme);
+      } catch (e) {}
+
+      const btnLight = document.getElementById('btn-theme-light');
+      const btnDark = document.getElementById('btn-theme-dark');
+      if (theme === 'dark') {
+        btnLight.classList.remove('active');
+        btnDark.classList.add('active');
+      } else {
+        btnDark.classList.remove('active');
+        btnLight.classList.add('active');
+      }
+    }
+
+    // Initialize: Default to 'light' theme unless user explicitly chose 'dark' or URL has ?theme=dark
+    (function () {
+      let initialTheme = 'light'; // Default is LIGHT theme
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlTheme = urlParams.get('theme');
+        if (urlTheme === 'dark' || urlTheme === 'light') {
+          initialTheme = urlTheme;
+        } else {
+          const saved = localStorage.getItem('fittrack_policy_theme');
+          if (saved === 'dark') {
+            initialTheme = 'dark';
+          }
+        }
+      } catch (e) {}
+      setAppTheme(initialTheme);
+    })();
+  </script>
+</body>
+</html>
